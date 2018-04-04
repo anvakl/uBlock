@@ -182,7 +182,7 @@ vAPI.messaging = {
     },
 
     builtinListener: function(msg) {
-        if ( msg.cmd === 'injectScript' ) {
+        if ( msg.what === 'injectScript' ) {
             // injectScript is not always present.
             // - See contentObserver.initContentScripts in frameModule.js
             if ( typeof self.injectScript !== 'function' )  { return; }
@@ -204,7 +204,7 @@ vAPI.messaging = {
             document.addEventListener('DOMContentLoaded', injectScriptDelayed);
             return;
         }
-        if ( msg.cmd === 'shutdownSandbox' ) {
+        if ( msg.what === 'shutdownSandbox' ) {
             vAPI.shutdown.exec();
             vAPI.messaging.stop();
             if ( typeof self.outerShutdown === 'function' ) {
