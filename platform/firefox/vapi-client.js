@@ -296,7 +296,7 @@ vAPI.messaging = {
         // the main process is no longer reachable: memory leaks and bad
         // performance become a risk -- especially for long-lived, dynamic
         // pages. Guard against this.
-        if ( this.pendingCount > 25 ) {
+        if ( this.pending.size > 25 ) {
             vAPI.shutdown.exec();
         }
         this.connect();
