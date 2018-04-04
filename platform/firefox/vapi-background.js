@@ -1173,7 +1173,7 @@ vAPI.tabs.injectScript = function(tabId, details, callback) {
             broadcast: true,
             channelName: 'vAPI',
             msg: {
-                cmd: 'injectScript',
+                what: 'injectScript',
                 details: details
             }
         })
@@ -1700,7 +1700,7 @@ vAPI.messaging.setup = function(defaultHandler) {
             JSON.stringify({
                 broadcast: true,
                 channelName: 'vAPI',
-                msg: { cmd: 'shutdownSandbox' }
+                msg: { what: 'shutdownSandbox' }
             })
         );
         gmm.removeDelayedFrameScript(vAPI.messaging.frameScriptURL);
