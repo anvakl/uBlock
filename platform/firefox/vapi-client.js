@@ -340,7 +340,7 @@ vAPI.messaging = {
     removeChannelListener: function(channelName, listener) {
         var listeners = this.channels.get(channelName);
         if ( listeners === undefined ) { return; }
-        var pos = this.listeners.indexOf(listener);
+        var pos = listeners.indexOf(listener);
         if ( pos === -1 ) { return; }
         listeners.splice(pos, 1);
         if ( listeners.length === 0 ) {
