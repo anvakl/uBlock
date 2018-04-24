@@ -193,12 +193,15 @@ var handlers = {
                 }
             );
         }
-        if ( Array.isArray(changes.procedural) ) {
-            for ( selector of changes.procedural ) {
-                procedural.dict.set(selector.raw, selector);
-            }
-            if ( changes.procedural.size !== 0 ) {
-                jobQueue.push(ProceduralJob.create());
+        if( typeof(changes.procedural) !== "undefined" )
+        {
+            if ( Array.isArray(changes.procedural) ) {
+                for ( selector of changes.procedural ) {
+                    procedural.dict.set(selector.raw, selector);
+                }
+                if ( changes.procedural.length !== 0 ) {
+                    jobQueue.push(ProceduralJob.create());
+                }
             }
         }
         if ( jobQueue.length !== 0 ) {
